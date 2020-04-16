@@ -9,11 +9,13 @@ public class Solution {
            int comp = target - nums[i];
         
           if(map.containsKey(comp)){
-             return new int {i, map.get(comp)}
+             return new int[] {i, map.get(comp)};
           }
 
-          map.put(nums[i], i)
+          map.put(nums[i], i);
       }
+
+      throw new IllegalArgumentException("parameter issue")
 
     }
  

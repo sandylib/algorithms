@@ -12,7 +12,7 @@ public class Solution {
       int carry =0;
       ListNode curr = dumyHead;
 
-      while(p != null && q != null) {
+      while(p != null || q != null) {
          int x = p != null ? p.val : 0;
          int y = q != null ? q.val : 0;
 
