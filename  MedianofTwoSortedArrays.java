@@ -1,9 +1,9 @@
 // 4. Median of Two Sorted Arrays
 public class  Solution {
   public double findMedianSortedArrays(int[] A, int[] B) {
-    int m = A.length, n = A.length;
+    int m = A.length, n = B.length;
     if(m > n) {
-      return findMedianSortedArrays(n, m);
+      return findMedianSortedArrays(B, A);
     }
 
     int iMin = 0, iMax = m, halfLen = (m + n + 1)/2;
