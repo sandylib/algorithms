@@ -1,22 +1,40 @@
-
-// # leetcode question 1
-public class Solution {
-
-    public int[] twoSum(int[] nums, int target) {
-      Map<Integer, Integer> map = new HashMap();
-      
-      for(int i=0; i< nums.length; i++){
-           int comp = target - nums[i];
-        
-          if(map.containsKey(comp)){
-             return new int[] {i, map.get(comp)};
-          }
-
-          map.put(nums[i], i);
+class Solution {
+  public int[] plusOne(int[] digits) {
+      //flag is used to judge whether we need a longer array
+    int length=digits.length,flag=0;
+      int [] result=new int[length+1];
+      for(int j=0;j<length;++j){
+          if(digits[j]!=9) flag=1;
       }
+      if(flag==0) {
+          result[0]=1;
+          return result;
+      }
+      //the key process to plus one
+      digits[length-1]++;
+      for(int i=length-1;i>=0;--i){
+          if(digits[i]==10){
+              digits[i]=0;
+              digits[i-1]++;
+          }
+      }
+      return digits;
+  }
 
-      throw new IllegalArgumentException("parameter issue")
 
-    }
- 
+  public int[] plusOne2(int[] digits) {
+    //judge each in turn
+       for(int i = digits.length - 1; i >= 0; i--) {  
+           if(digits[i] != 9) {
+               digits[i]++;
+               return digits;
+           } else {
+               digits[i] = 0;
+           }
+       }
+       // we need to apply a new array to make length++
+       int[] result = new int[digits.length + 1];
+       result[0] = 1;
+       return result;
+   }
 }
